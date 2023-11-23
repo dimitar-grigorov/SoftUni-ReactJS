@@ -1,5 +1,5 @@
-export default function useForm(submitHandler, initialValue) {
-  const [values, setValues] = useState(initialValue);
+export default function useForm(submitHandler, initialValues) {
+  const [values, setValues] = useState(initialValues);
   const onChange = (e) => {
     setValues((state) => ({
       ...state,
