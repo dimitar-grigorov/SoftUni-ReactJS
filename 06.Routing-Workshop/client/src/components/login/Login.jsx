@@ -1,5 +1,5 @@
 import useForm from '../../hooks/useForm';
-import AuthContext from '../../contexts/authContext';
+import AuthContext from '../../contexts/AuthContext';
 
 const LoginFormKeys = {
     Email: 'email',
