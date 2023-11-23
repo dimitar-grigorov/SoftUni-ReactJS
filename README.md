@@ -2,6 +2,8 @@
 
 TODO: Reasearch about Call, Apply and Bind
 
+`Ctrl + D` - Multi cursor select of the same word
+
 ## 01. Intro to React an JSX
 
 ```bash
@@ -114,4 +116,6 @@ cd server && node server.js
 # Run the client
 cd "$(git rev-parse --show-toplevel)/06-Routing-Workshop/client/"
 npm run dev
+
+npm install react-router-dom
 ```
