@@ -94,5 +94,6 @@ const submitForm = () => {
 <form ref={formRef} onSubmit={handleSubmit}>
 ```
 
-Reasons for re-rendering: mount, parent re-render, props change, hooks/state change, context change
+Reasons for re-rendering: initial render, parent re-render, props change, state change(custom hook state change). Maybe context change and forceUpdate.
+
 
