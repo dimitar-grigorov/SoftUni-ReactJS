@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import * as authService from './services/authService';
-import AuthContext from './contexts/AuthContext';
+import AuthContext from './contexts/authContext';
 import Path from './path';
 
 import Header from "./components/header/Header"
@@ -42,12 +42,12 @@ function App() {
     }
 
     return (
-        <AuthContext.Provider value={{ loginSubmitHandler }}>
+        <AuthContext.Provider value={values}>
             <div id="box">
                 <Header />
 
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path={Path.Home} element={<Home />} />
                     <Route path="/games" element={<GameList />} />
                     <Route path="/games/create" element={<GameCreate />} />
                     <Route path="/login" element={<Login />} />
