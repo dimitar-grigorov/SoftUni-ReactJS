@@ -96,3 +96,10 @@ const submitForm = () => {
 
 Reasons for re-rendering: mount, parent re-render, props change, hooks/state change, context change
 
+06. Routing Workshop
+
+```bash
+cd "$(git rev-parse --show-toplevel)/06-Routing-Workshop/client/"
+npm create vite . -- --template react
+npm install
+```
