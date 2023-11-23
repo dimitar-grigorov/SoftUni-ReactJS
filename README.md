@@ -111,4 +111,7 @@ npm run build
 # Copy dist/server.js to the server folder
 # In separate terminal run the server
 cd server && node server.js
+# Run the client
+cd "$(git rev-parse --show-toplevel)/06-Routing-Workshop/client/"
+npm run dev
 ```
