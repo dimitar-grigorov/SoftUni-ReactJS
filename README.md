@@ -102,4 +102,13 @@ Reasons for re-rendering: mount, parent re-render, props change, hooks/state cha
 cd "$(git rev-parse --show-toplevel)/06-Routing-Workshop/client/"
 npm create vite . -- --template react
 npm install
+# In separate folder clone the server
+git clone https://github.com/softuni-practice-server/softuni-practice-server.git
+cd softuni-practice-server
+npm install
+npm run client
+npm run build
+# Copy dist/server.js to the server folder
+# In separate terminal run the server
+cd server && node server.js
 ```
