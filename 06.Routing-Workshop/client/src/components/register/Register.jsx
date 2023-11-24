@@ -1,64 +1,79 @@
-import { useContext } from "react";
+import { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import AuthContext from "../../contexts/authContext";
-import useForm from "../../hooks/useForm";
+import * as authService from './services/authService';
+import AuthContext from './contexts/authContext';
+import Path from './paths';
 
-const RegisterFormKeys = {
-    Email: 'email',
-    Password: 'password',
-    ConfirmPassword: 'confirm-password',
-};
+import Header from "./components/header/Header"
+import Home from "./components/home/Home"
+import GameList from './components/game-list/GameList';
+import GameCreate from './components/game-create/GameCreate';
+import Login from './components/login/Login';
+import Logout from './components/logout/Logout';
+import Register from './components/register/Register';
+import GameDetails from './components/game-details/GameDetails';
 
-export default function Register() {
-    const { registerSubmitHandler } = useContext(AuthContext);
-    const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
-        [RegisterFormKeys.Email]: '',
-        [RegisterFormKeys.Password]: '',
-        [RegisterFormKeys.ConfirmPassword]: '',
+function App() {
+    const navigate = useNavigate();
+    const [auth, setAuth] = useState(() => {
+        localStorage.removeItem('accessToken');
+
+        return {};
     });
 
+    const loginSubmitHandler = async (values) => {
+        const result = await authService.login(values.email, values.password);
+
+        setAuth(result);
+
+        localStorage.setItem('accessToken', result.accessToken);
+
+        navigate(Path.Home);
+    };
+
+    const registerSubmitHandler = async (values) => {
+        const result = await authService.register(values.email, values.password);
+
+        setAuth(result);
+
+        localStorage.setItem('accessToken', result.accessToken);
+
+        navigate(Path.Home);
+    };
+
+    const logoutHandler = () => {
+        setAuth({});
+
+        localStorage.removeItem('accessToken');
+    };
+
+    const values = {
+        loginSubmitHandler,
+        registerSubmitHandler,
+        logoutHandler,
+        username: auth.username || auth.email,
+        email: auth.email,
+        isAuthenticated: !!auth.accessToken,
+    };
+
     return (
-        <section id="register-page" className="content auth">
-            <form id="register" onSubmit={onSubmit}>
-                <div className="container">
-                    <div className="brand-logo"></div>
-                    <h1>Register</h1>
+        <AuthContext.Provider value={values}>
+            <div id="box">
+                <Header />
 
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="maria@email.com"
-                        onChange={onChange}
-                        values={values[RegisterFormKeys.Email]}
-                    />
-
-                    <label htmlFor="pass">Password:</label>
-                    <input
-                        type="password"
-                        name="password"
-                        id="register-password"
-                        onChange={onChange}
-                        values={values[RegisterFormKeys.Password]}
-                    />
-
-                    <label htmlFor="con-pass">Confirm Password:</label>
-                    <input
-                        type="password"
-                        name="confirm-password"
-                        id="confirm-password"
-                        onChange={onChange}
-                        values={values[RegisterFormKeys.ConfirmPassword]}
-                    />
-
-                    <input className="btn submit" type="submit" value="Register" />
-
-                    <p className="field">
-                        <span>If you already have profile click <a href="#">here</a></span>
-                    </p>
-                </div>
-            </form>
-        </section>
-    );
+                <Routes>
+                    <Route path={Path.Home} element={<Home />} />
+                    <Route path="/games" element={<GameList />} />
+                    <Route path="/games/create" element={<GameCreate />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/games/:gameId" element={<GameDetails />} />
+                    <Route path={Path.Logout} element={<Logout />} />
+                </Routes>
+            </div>
+        </AuthContext.Provider>
+    )
 }
+
+export default App
