@@ -1,6 +1,7 @@
 # ReactJS
 
 TODO: Reasearch about Call, Apply and Bind
+TODO: Deep destructuring `{comments.map(({ _id, text, owner: { email } }) => (`
 
 `Ctrl + D` - Multi cursor select of the same word
 
