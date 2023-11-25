@@ -2,6 +2,7 @@
 
 TODO: Reasearch about Call, Apply and Bind
 TODO: Deep destructuring `{comments.map(({ _id, text, owner: { email } }) => (`
+TODO: Form validation react-hook-form
 
 `Ctrl + D` - Multi cursor select of the same word
 
