@@ -1,8 +1,15 @@
 # ReactJS
 
-TODO: Reasearch about Call, Apply and Bind
-TODO: Deep destructuring `{comments.map(({ _id, text, owner: { email } }) => (`
-TODO: Form validation react-hook-form
+- TODO: Reasearch about Call, Apply and Bind
+- TODO: Deep destructuring `{comments.map(({ _id, text, owner: { email } }) => (`
+- TODO: Form validation react-hook-form
+
+TODOS for VSCode:
+    - How to select Current Word. How to expand selection to next bracket.
+    - How to surround current word with quotes or brackets.
+
+Checkout why component is re-rendered.
+Chrome extension: React Developer Tools -> React Profiler. In Settings "Record why each component rendered";
 
 `Ctrl + D` - Multi cursor select of the same word
 
