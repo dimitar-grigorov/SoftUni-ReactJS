@@ -28,8 +28,6 @@ npm run dev
 
 ```
 
-- Homework: Get free HTML template and convert it to react app
-
 ## 02. Components: Basic Idea
 
 ```bash
