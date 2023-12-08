@@ -108,7 +108,7 @@ Reasons for re-rendering: mount, parent re-render, props change, hooks/state cha
 06. Routing Workshop
 
 ```bash
-cd "$(git rev-parse --show-toplevel)/06-Routing-Workshop/client/"
+cd "$(git rev-parse --show-toplevel)/06.Routing-Workshop/client/"
 npm create vite . -- --template react
 npm install
 # In separate folder clone the server
@@ -121,8 +121,22 @@ npm run build
 # In separate terminal run the server
 cd server && node server.js
 # Run the client
-cd "$(git rev-parse --show-toplevel)/06-Routing-Workshop/client/"
+cd "$(git rev-parse --show-toplevel)/06.Routing-Workshop/client/"
 npm run dev
 
 npm install react-router-dom
+```
+
+11. Class-Components
+
+```bash
+cd "$(git rev-parse --show-toplevel)/11.Class-Components/"
+npm create vite . -- --template react
+npm install
+npm install antd
+npm run dev
+# In separate terminal run the server
+cd "$(git rev-parse --show-toplevel)/server/"
+node server.js
+
 ```
