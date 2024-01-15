@@ -1,4 +1,4 @@
-# ReactJS
+# ReactJS SoftUni
 
 - TODO: Reasearch about Call, Apply and Bind
 - TODO: Deep destructuring `{comments.map(({ _id, text, owner: { email } }) => (`
